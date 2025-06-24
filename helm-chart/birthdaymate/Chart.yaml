@@ -1,7 +1,0 @@
-apiVersion: v2
-name: birthdaymate
-description: A Helm chart for BirthdayMate app
-type: application
-version: 0.1.0
-appVersion: "1.0.0"
-

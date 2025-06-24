@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: birthdaymate-deployment
+  labels:
+    app: birthdaymate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: birthdaymate
+  template:
+    metadata:
+      labels:
+        app: birthdaymate
+    spec:
+      containers:
+        - name: birthdaymate
+          image: vinaypdb/birthdaymate:latest
+          ports:
+            - containerPort: 9090
+

@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: birthdaymate-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+spec:
+  tls:
+  - hosts:
+    - nginx.local
+    secretName: birthdaymate-tls
+  rules:
+  - host: nginx.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: birthdaymate-service
+            port:
+              number: 80
+

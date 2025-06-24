@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: birthdaymate-deployment
-  labels:
-    app: birthdaymate
 spec:
   replicas: 1
   selector:

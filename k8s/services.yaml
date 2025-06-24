@@ -2,14 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: birthdaymate-service
-  labels:
-    app: birthdaymate
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: birthdaymate
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 9090
+      nodePort: 30090  # Exposes app on http://<minikube_ip>:30090
 
